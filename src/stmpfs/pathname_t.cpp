@@ -3,9 +3,9 @@
  * This file implements pathname resolver
  */
 
-#include <pathname.h>
+#include <pathname_t.h>
 
-pathname_t::pathname_t(std::string pathname)
+stmpfs_pathname_t::stmpfs_pathname_t(std::string pathname)
 {
     if (pathname == "/")
     {
@@ -28,7 +28,7 @@ pathname_t::pathname_t(std::string pathname)
     {
         if (it == '/')
         {
-            this->my_pathname.emplace_back(cur);
+            this->pathname.emplace_back(cur);
             cur.clear();
         }
         else
@@ -37,5 +37,5 @@ pathname_t::pathname_t(std::string pathname)
         }
     }
 
-    this->my_pathname.emplace_back(cur);
+    this->pathname.emplace_back(cur);
 }
